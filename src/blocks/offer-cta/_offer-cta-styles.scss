@@ -1,0 +1,233 @@
+.block-offer-cta {
+    background: url(../images/block-offer__bg.jpg) center center no-repeat;
+    background-size: cover;
+
+    @include fluid(padding-top, 40px, 50px);
+    @include fluid(padding-bottom, 40px, 80px);
+
+    .l-cols {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        @include bp(lg) {
+            flex-direction: row;
+            justify-content: space-between;
+        }
+    }
+
+    .header-box__header {
+        @include fluid(margin-bottom, 30px, 60px);
+    }
+
+    &__item-wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+        margin: 0 0 40px;
+
+        @include bp(md) {
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
+
+        @include bp(lg) {
+            margin: 0;
+        }
+
+        .item {
+            &__icon-wrapper {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-shrink: 0;
+                width: 120px;
+                height: 120px;
+
+                @include bp(lg) {
+                    width: 150px;
+                    height: 150px;
+                }
+
+                .item {
+                    &__background {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        background-color: $white;
+                        width: 100%;
+                        height: 100%;
+                        border-radius: 50%;
+                    }
+
+                    &__icon {
+                        width: 50px;
+                        height: 50px;
+
+                        @include bp(xlg) {
+                            width: 70px;
+                            height: 70px;
+                        }
+                    }
+                }
+            }
+
+            &__content {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                flex-grow: 0;
+                margin: 30px 0 0 0;
+                text-align: center;
+
+                @include bp(md) {
+                    margin: 0 0 0 30px;
+                }
+            }
+
+            &__description {
+                font-family: $titillium;
+                font-size: 22px;
+                font-weight: 600;
+                color: $gray;
+
+                @media (max-width: 500px) {
+                    text-align: center;
+                }
+            }
+
+            &__phone-number {
+                font-family: $titillium;
+                font-weight: 700;
+                color: $gray;
+
+                @include fluid(font-size, 30px, 35px);
+                @include transition(color);
+                @include fluid(margin-top, 5px, 13px);
+
+                &:hover {
+                    color: $yellow;
+                }
+            }
+        }
+    }
+
+    .gform_wrapper {
+        .gform_fields.top_label {
+
+            .gfield_label {
+                display: none;
+            }
+        }
+
+        .gfield gfield_contains_required.field_sublabel_below {
+            &::before {
+                display: none;
+            }
+        }
+
+        .gfield_consent_label {
+            display: inline;
+            font-weight: $font-weight-regular;
+
+            @include fluid(font-size, .6875rem, .75rem);
+        }
+
+        .ginput_container_consent {
+            input {
+                @include fluid(margin-right, .15rem, .25rem);
+            }
+
+        }
+
+        li.gfield {
+            margin-top: 0;
+            list-style: none;
+
+            &::before {
+                display: none !important;
+            }
+
+            &.gfield_error.gfield_contains_required div.ginput_container {
+                margin: 0;
+            }
+
+            input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]),
+            textarea {
+                max-width: 100%;
+                font-family: $open-sans;
+                font-weight: $font-weight-regular;
+                font-style: normal;
+                font-stretch: normal;
+                letter-spacing: normal;
+                color: $gray;
+                background-color: $white;
+                border: solid 1px #e1e1e1;
+                border-radius: 2px;
+
+                @include fluid(padding-top, .5rem, .625rem);
+                @include fluid(padding-bottom, .5rem, .625rem);
+                @include fluid(padding-left, 1rem, 1.25rem);
+                @include fluid(padding-right, 1rem, 1.25rem);
+                @include fluid(font-size, .8125rem, .875rem);
+
+                &:focus {
+                    outline: none;
+                }
+
+                &::placeholder {
+                    color: rgba($gray, .5);
+                }
+            }
+
+            input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]) {
+                width: 100%;
+                height: 50px;
+            }
+
+            &.gfield_error {
+                background-color: transparent;
+                border: none;
+
+                input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]) {
+                    border-color: $red;
+                }
+            }
+
+        }
+
+        .field_description_below .gfield_description {
+            @include fluid(padding-top, .15rem, .25rem);
+        }
+
+        .validation_error {
+            display: none;
+        }
+
+        .gform_footer.top_label {
+            margin-top: 0;
+        }
+
+    }
+
+    &__form {
+        display: flex;
+        justify-content: center;
+
+        @include bp(lg) {
+            justify-content: flex-start;
+        }
+
+        &.form-cta {
+            margin: 1rem 0 0;
+            display: flex;
+            height: 52px;
+        }
+
+    }
+}

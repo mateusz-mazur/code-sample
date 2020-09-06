@@ -1,0 +1,195 @@
+.block-video {
+    position: relative;
+
+    @include fluid(margin-top, 30px, 50px);
+    @include fluid(margin-bottom, -50px, -100px);
+
+    &:before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        content: '';
+        display: block;
+        width: 100%;
+        height: 50%;
+        background: url(../images/block-benefits__bg.jpg) center center repeat;
+    }
+
+    .video-slider {
+        @include fluid(padding-left, 20px, 70px);
+        @include fluid(padding-right, 20px, 70px);
+
+        .slick-current {
+
+            .item {
+                &__image-wrapper {
+                    position: relative;
+                    border-radius: 5px;
+                    overflow: hidden;
+                }
+
+                &__button-wrapper {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    content: '';
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 100%;
+                    height: 100%;
+                }
+
+                &__button {
+                    position: relative;
+                    justify-content: center;
+                    align-items: center;
+                    display: flex;
+                    width: 50px;
+                    height: 50px;
+                    background-color: rgba($yellow, 1);
+                    border-radius: 50%;
+
+                    @include transition(opacity);
+
+                    @include bp(sm) {
+                        width: 30px;
+                        height: 30px;
+                    }
+
+                    @include bp(md) {
+                        width: 50px;
+                        height: 50px;
+                    }
+
+                    &::after {
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        content: '';
+                        display: block;
+                        width: 0;
+                        height: 0;
+                        border-style: solid;
+                        border-width: 10px 0 10px 12px;
+                        border-color: transparent transparent transparent $gray;
+                        transform: translateY(-50%) translateX(-50%);
+
+                        @include bp(sm) {
+                            border-width: 5px 0 5px 6px;
+                        }
+
+                        @include bp(md) {
+                            border-width: 10px 0 10px 12px;
+                        }
+                    }
+
+                    &:hover {
+                        opacity: .8;
+                    }
+                }
+            }
+
+        }
+
+        .slick-slide {
+            position: relative;
+            padding-left: 20px;
+            padding-right: 20px;
+            width: 50%;
+
+            @include fluid(padding-top, 60px, 220px);
+            @include fluid(padding-bottom, 60px, 220px);
+
+            .item {
+                &__image-wrapper {
+                    box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.2);
+                }
+
+                &__image {
+                    position: relative;
+
+                    &::after {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        right: 0;
+                        bottom: 0;
+                        content: '';
+                        display: block;
+                        background: rgba($black, .6);
+                    }
+                }
+            }
+
+        }
+
+        .slick-current {
+            transition: transform .2s ease-in-out;
+            z-index: 9999;
+
+            @include bp(sm) {
+                transform: scale(2.5);
+            }
+
+            .item {
+                &__image-wrapper {
+                    box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.2);
+
+                    @include transition(box-shadow);
+                }
+
+                &__image {
+
+                    &::after {
+                        display: none;
+                    }
+                }
+            }
+
+            &:hover {
+                .item {
+                    &__image-wrapper {
+                        box-shadow: 0 5px 28px 0 rgba(0, 0, 0, 0.3);
+                    }
+                }
+            }
+        }
+
+        .slick-arrow {
+            position: absolute;
+            top: 50%;
+            content: '';
+            text-indent: -999999px;
+            border: none;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-color: transparent;
+            outline: none;
+            cursor: pointer;
+
+            @include fluid(width, 25px, 35px);
+            @include fluid(height, 20px, 30px);
+
+            &:hover,
+            &:active {
+                outline: none;
+                opacity: .5;
+            }
+
+            &.slick-prev {
+                left: 0;
+                background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="35" height="29.167" viewBox="0 0 35 29.167"%3E%3Cpath d="M41.542 25.125H12.449l11.14-10.611a1.459 1.459 0 0 0-2.012-2.114L8.855 24.52a2.916 2.916 0 0 0 .026 4.15l12.7 12.094a1.458 1.458 0 1 0 2.012-2.112L12.4 28.042h29.142a1.458 1.458 0 0 0 0-2.917z" data-name="arrow-left" transform="translate(-8 -12)" style="fill:%23ffcd00"/%3E%3C/svg%3E%0A');
+                transform: translateY(-50%);
+            }
+
+            &.slick-next {
+                right: 0;
+                background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="35" height="29.167" viewBox="0 0 35 29.167"%3E%3Cpath d="M9.458 25.125h29.093l-11.14-10.611a1.459 1.459 0 0 1 2.012-2.114l12.722 12.12a2.916 2.916 0 0 1-.026 4.15l-12.7 12.094a1.458 1.458 0 1 1-2.012-2.112L38.6 28.042H9.458a1.458 1.458 0 0 1 0-2.917z" data-name="arrow-right" transform="translate(-8 -12)" style="fill:%23ffcd00"/%3E%3C/svg%3E');
+                transform: translateY(-50%);
+            }
+        }
+
+    }
+}

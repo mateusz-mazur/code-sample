@@ -1,0 +1,189 @@
+.p-project-single {
+    $n: &;
+
+    background-color: $white;
+
+    .entry-header {
+        @include fluid(padding-top, 20px, 50px);
+        @include fluid(margin-bottom, 50px, 80px);
+
+        .l-cols {
+            display: flex;
+            flex-direction: column;
+
+            @include bp(md) {
+                flex-direction: row;
+            }
+
+            &__col {
+                width: 100%;
+
+                @include bp(md) {
+                    width: 50%;
+                }
+
+                &--header {
+                    .header-block__header {
+                        text-align: center;
+
+                        @include fluid(margin-bottom, 20px, 30px);
+
+                        @include bp(md) {
+                            text-align: left;
+                            background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPoAAAAECAYAAACndCJUAAAAQklEQVR42mL8d4bhP8MoGEyAkdF4NEpGAXUB02gQjIJRMPwBy2gQDD7w6NGj0UAYBaMZfTiDx6IPR9vto4DqACDAAAP4CYf9L7RyAAAAAElFTkSuQmCC') left bottom no-repeat;
+                        }
+                    }
+                }
+
+                &--project-logo {
+                    text-align: center;
+
+                    img {
+                        max-width: 30%;
+                        min-width: 150px;
+                    }
+
+                    @include bp(md) {
+                        text-align: right;
+                    }
+                }
+            }
+        }
+    }
+
+    &__content-top {
+        .l-cols {
+            display: flex;
+            flex-direction: column;
+
+            @include bp(md) {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+
+            &__col {
+                width: 100%;
+
+                @include bp(md) {
+                    width: calc(50% - 30px);
+                }
+            }
+        }
+
+        .item {
+            &__image-wrapper {
+                padding-top: 15px;
+                padding-right: 15px;
+            }
+
+            &__gallery-wrapper {
+                margin-top: 15px;
+                padding-right: 15px;
+            }
+        }
+
+        .project-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0 -5px;
+
+            &__item {
+                width: calc(25% - 10px);
+                margin: 10px 5px 0;
+
+                @include bp(sm) {
+                    width: calc(20% - 10px);
+                }
+
+                &:hover {
+                    img {
+                        opacity: .7;
+                    }
+                }
+            }
+        }
+
+    }
+
+    &__content {
+        @include fluid(margin-top, 30px, 50px);
+        @include fluid(padding-bottom, 30px, 50px);
+
+        @include bp(lg) {
+            width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+
+    .project-single-info {
+        @include fluid(margin-top, 20px, 50px);
+
+        @include bp(md) {
+            margin-top: 0;
+        }
+
+        table {
+            width: 100%;
+            margin: 0 0 50px 0;
+        }
+
+        tr {
+            td {
+                vertical-align: top;
+                background: $gray-light;
+
+                @include fluid(padding-top, 15px, 20px);
+                @include fluid(padding-bottom, 15px, 20px);
+                @include fluid(padding-left, 10px, 20px);
+                @include fluid(padding-right, 10px, 20px);
+                @include fluid(font-size, 13px, 15px);
+            }
+
+            td.icon {
+                img {
+                    min-width: 15px;
+                }
+            }
+
+            td.label {
+                font-family: $titillium;
+                font-weight: $font-weight-semi-bold;
+                font-style: normal;
+                font-stretch: normal;
+                line-height: 1.35;
+                letter-spacing: normal;
+                color: $gray;
+            }
+
+            td.value {
+                font-family: $open-sans;
+                font-weight: $font-weight-regular;
+                font-style: normal;
+                font-stretch: normal;
+                line-height: 1.35;
+                letter-spacing: normal;
+                text-align: left;
+                color: $gray;
+            }
+        }
+
+        tr:nth-child(even){
+            td {
+                background: $gray-light-3;
+            }
+        }
+
+    }
+
+    .block-projects {
+        &--related {
+            @include fluid(padding-bottom, 50px, 80px);
+
+            .header-block__header {
+                @include fluid(margin-bottom, 20px, 30px);
+            }
+        }
+    }
+
+}

@@ -1,0 +1,266 @@
+.p-single {
+    $n: &;
+
+    .entry-header {
+        @include fluid(padding-top, 20px, 50px);
+
+        .c-cols {
+            display: flex;
+            flex-direction: column-reverse;
+
+            @include bp(md) {
+                flex-direction: row;
+            }
+
+            &__col {
+                width: 100%;
+
+                @include bp(md) {
+                    flex-direction: row;
+                    width: 50%;
+                }
+
+                &--description {
+                    @include fluid(margin-top, 20px, 30px);
+
+                    @include bp(md) {
+                        margin-top: 0;
+                        @include fluid(padding-right, 50px, 100px, $lg, $xl);
+                    }
+                }
+            }
+        }
+
+        #{$n}__hero {
+            .header-block__header {
+                @include fluid(margin-bottom, 15px, 30px);
+            }
+
+            .header-block__author {
+                display: block;
+                color: $gray-light-2;
+            }
+
+            .header-block {
+                &__meta {
+                    display: flex;
+                    color: $gray-light-2;
+
+                    .meta {
+                        &__image {
+                            position: relative;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            width: 70px;
+                            height: 70px;
+
+
+                            img {
+                                width: 75%;
+                                height: auto;
+                                border-radius: 50%;
+                            }
+
+                            &::after {
+                                position: absolute;
+                                top: 0;
+                                left: 0;
+                                display: block;
+                                width: 100%;
+                                height: 100%;
+                                content: '';
+                                background: url(../images/sense-frame-yellow.svg) 0 0 no-repeat;
+                            }
+                        }
+
+                        &__text {
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            margin: 0 0 0 15px;
+
+                            &--no-margin {
+                                margin: 0;
+
+                                i.fas {
+                                    margin: 0 10px 0 0;
+                                    color: $yellow;
+                                }
+                            }
+                        }
+                    }
+
+                    @include fluid(margin-bottom, 15px, 30px);
+                }
+
+                &__date {
+                    display: flex;
+                    align-items: center;
+                    font-size: 13px;
+
+                    &-icon {
+                        display: inline-block;
+                        width: 16px;
+                        height: 14px;
+                        background-image: url("data:image/svg+xml,%3Csvg aria-hidden='true' focusable='false' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3E%3Cpath fill='%23dcdcdc' d='M0 464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V192H0v272zm320-196c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12h-40c-6.6 0-12-5.4-12-12v-40zm0 128c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12h-40c-6.6 0-12-5.4-12-12v-40zM192 268c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12h-40c-6.6 0-12-5.4-12-12v-40zm0 128c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12h-40c-6.6 0-12-5.4-12-12v-40zM64 268c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12H76c-6.6 0-12-5.4-12-12v-40zm0 128c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12H76c-6.6 0-12-5.4-12-12v-40zM400 64h-48V16c0-8.8-7.2-16-16-16h-32c-8.8 0-16 7.2-16 16v48H160V16c0-8.8-7.2-16-16-16h-32c-8.8 0-16 7.2-16 16v48H48C21.5 64 0 85.5 0 112v48h448v-48c0-26.5-21.5-48-48-48z'%3E%3C/path%3E%3C/svg%3E");
+                        background-repeat: no-repeat;
+                        background-position: center center;
+                        background-size: contain;
+                    }
+                }
+
+                &__date-icon {
+                    margin-right: 5px;
+                }
+            }
+
+            .item__image-wrapper {
+                margin-top: 0;
+
+                @include bp(md) {
+                    margin-top: 15px;
+                }
+            }
+        }
+
+    }
+
+    &__excerpt {
+        @include fluid(font-size, 17px, 20px);
+        @include fluid(margin-top, 10px, 50px);
+
+        @include bp(lg) {
+            width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+    }
+
+    .entry-content {
+        @include bp(lg) {
+            width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        @include fluid(margin-top, 30px, 100px);
+        @include fluid(padding-bottom, 30px, 50px);
+    }
+
+    &__author-box {
+        border-top: solid 1px $yellow;
+
+        @include fluid(padding-bottom, 30px, 50px);
+
+        @include bp(lg) {
+            width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        @include fluid(padding-top, 30px, 50px);
+
+        .header-block {
+            &__header {
+                @include fluid(margin-bottom, 20px, 30px);
+                @include fluid(padding-bottom, 15px, 20px);
+            }
+        }
+
+        .c-image {
+            border-radius: 50%;
+            overflow: hidden;
+            flex-shrink: 0;
+
+            @include fluid(width, 120px, 200px);
+            @include fluid(height, 120px, 200px);
+            @include fluid(margin-right, 30px, 50px);
+        }
+
+        .c-social-media {
+            display: flex;
+            justify-content: center;
+
+            @include fluid(font-size, 15px, 28px);
+            @include fluid(margin-right, 30px, 50px);
+            @include fluid(margin-top, 10px, 20px);
+
+            a {
+                color: $yellow;
+                @include transition(opacity);
+
+                &:hover {
+                    opacity: .8;
+                }
+            }
+
+            &__icon {
+                display: block;
+
+                @include fluid(width, 1rem, 1.5rem);
+                @include fluid(height, 1rem, 1.5rem);
+
+                &--linkedin {
+                    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18'%3E%3Cdefs%3E%3Cstyle%3E.prefix__cls-1%7Bfill:%23ffcd00%7D%3C/style%3E%3C/defs%3E%3Cpath id='prefix__Path_441' d='M192.728 173.9v-6.6c0-3.23-.7-5.717-4.471-5.717a3.919 3.919 0 00-3.53 1.94h-.053v-1.643H181.1v12.02h3.727v-5.951c0-1.567.3-3.082 2.237-3.082 1.912 0 1.94 1.788 1.94 3.182v5.851z' class='prefix__cls-1' data-name='Path 441' transform='translate(-174.732 -155.899)'/%3E%3Cpath d='M8.448 170.176h3.732v12.017H8.448z' class='prefix__cls-1' data-name='Path 442' transform='translate(-8.151 -164.193)'/%3E%3Cpath d='M2.162 0a2.172 2.172 0 102.161 2.162A2.162 2.162 0 002.162 0z' class='prefix__cls-1' data-name='Path 443'/%3E%3C/svg%3E");
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                }
+            }
+        }
+
+        .c-image--mobile {
+            border-radius: 50%;
+            overflow: hidden;
+            flex-shrink: 0;
+
+            @include bp(sm) {
+                display: none;
+            }
+            @include fluid(width, 120px, 200px);
+            @include fluid(height, 120px, 200px);
+            @include fluid(margin-bottom, 10px, 15px);
+        }
+
+        .c-description {
+            &__name {
+                font-family: $titillium;
+                font-weight: $font-weight-semi-bold;
+                @include fluid(font-size, 18px, 25px);
+            }
+        }
+    }
+
+    .l-cols {
+        display: flex;
+        justify-content: space-between;
+
+        &__col {
+            &--image {
+                display: none;
+
+                @include bp(sm) {
+                    display: block;
+                }
+            }
+        }
+    }
+
+
+    /*
+    * Related Posts.
+    */
+    &__related-posts {
+        @include fluid(margin-top, 50px, 70px);
+
+        .blog__more {
+            display: flex;
+            justify-content: center;
+
+            @include fluid(margin-top, 50px, 70px);
+            @include fluid(margin-bottom, 50px, 70px);
+        }
+    }
+}

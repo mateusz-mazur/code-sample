@@ -1,0 +1,49 @@
+.block-about-us {
+    @include fluid(padding-top, 50px, 80px);
+    @include fluid(padding-bottom, 50px, 80px);
+
+    .l-cols {
+        display: flex;
+        flex-direction: column;
+        margin: 0 -15px;
+
+        @include bp(md) {
+            flex-direction: row;
+        }
+
+        &__col {
+            margin: 0 15px;
+
+            @include bp(md) {
+                width: 50%;
+            }
+        }
+    }
+
+    .item {
+        &__image-wrapper {
+            max-width: 540px;
+
+            padding-top: 15px;
+        }
+
+        &__description-header {
+            font-family: $titillium;
+            font-weight: 600;
+
+            @include fluid(font-size, 28px, 35px);
+            @include fluid(margin-bottom, 10px, 20px);
+        }
+
+        &__description-wrapper {
+
+            @include fluid(margin-top, 20px, 50px);
+
+            @include bp(md) {
+                margin-top: 0;
+
+                @include fluid(padding-left, 20px, 100px);
+            }
+        }
+    }
+}

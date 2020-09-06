@@ -1,0 +1,15 @@
+.block-blog {
+    background-color: $white;
+
+    @include fluid(padding-top, 50px, 80px);
+
+    &__more {
+        display: flex;
+        justify-content: center;
+        background: url(../images/block-blog__bg.jpg) 0 0 repeat;
+
+        @include fluid(margin-top, 50px, 80px);
+        @include fluid(padding-top, 50px, 80px);
+        @include fluid(padding-bottom, 50px, 80px);
+    }
+}

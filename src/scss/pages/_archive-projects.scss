@@ -1,0 +1,79 @@
+.p-archive-projects,
+.block-projects,
+.block-projects-categories__projects {
+    $n: &;
+
+    @include fluid(padding-bottom, 30px, 50px);
+
+    .l-cols {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        margin-left: -15px;
+        margin-right: -15px;
+
+        @include bp(sm) {
+            flex-direction: row;
+        }
+
+        &__col {
+            width: calc(100% - 30px);
+            margin-left: 15px;
+            margin-right: 15px;
+
+            @include bp(sm) {
+                width: calc(50% - 30px);
+            }
+
+            @include bp(lg) {
+                width: calc(100% / 3 - 30px);
+            }
+        }
+    }
+
+    &__description {
+        .description-row {
+            display: flex;
+
+            &__label {
+
+            }
+        }
+    }
+
+    &__item {
+        @include fluid(margin-top, 30px, 50px);
+
+        &--active {
+            #{$n}__question {
+                background-color: $yellow;
+            }
+        }
+    }
+
+    &__question {
+        margin: 0;
+        background-color: $gray-light-3;
+        color: $gray;
+        border-radius: 3px;
+        cursor: pointer;
+
+        @include transition(background-color);
+        @include fluid(font-size, 15px, 20px);
+        @include fluid(padding-top, 20px, 27px);
+        @include fluid(padding-bottom, 20px, 27px);
+        @include fluid(padding-right, 50px, 60px);
+        @include fluid(padding-left, 20px, 30px);
+
+        &:hover {
+            background-color: $yellow;
+        }
+    }
+
+    &__answer {
+        @include fluid(padding-top, 20px, 30px);
+        @include fluid(padding-bottom, 5px, 10px);
+        @include fluid(padding-right, 20px, 30px);
+        @include fluid(padding-left, 20px, 30px);
+    }
+}

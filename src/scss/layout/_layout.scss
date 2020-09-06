@@ -1,0 +1,73 @@
+/*
+* Layout.
+*/
+.l-container-full {
+    width: 100%;
+}
+
+.l-container {
+    width: 100%;
+    margin: auto;
+
+    @include fluid(padding-left, 10px, 15px);
+    @include fluid(padding-right, 10px, 15px);
+
+    @include bp(xsm) {
+        max-width: 100%;
+    }
+
+    @include bp(sm) {
+        max-width: $sm;
+    }
+
+    @include bp(md) {
+        max-width: $md;
+    }
+
+    @include bp(lg) {
+        max-width: $lg;
+    }
+
+    @include bp(xl) {
+        max-width: $xl;
+    }
+
+    //@include bp(xxl) {
+    //  max-width: $xxl;
+    //}
+}
+
+
+/* Site Container
+--------------------------------------------- */
+
+.site-container {
+    padding-top: 80px;
+    animation: fadein 1s;
+
+    @include bp(lg) {
+        padding-top: 100px;
+    }
+}
+
+@keyframes fadein {
+
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+
+}
+
+/* Site Inner
+--------------------------------------------- */
+
+.site-inner {
+    clear: both;
+    margin: 0 auto;
+    padding: 0;
+}
+

@@ -1,0 +1,46 @@
+.image-with-decor {
+    position: relative;
+
+    img {
+        position: relative;
+        z-index: 2;
+
+        @include transition(transform, .5s);
+    }
+
+    &::after {
+        position: absolute;
+        z-index: 1;
+        content: '';
+        display: block;
+        width: 60%;
+        height: 60%;
+        background-color: $yellow;
+    }
+
+    &--left {
+        &::after {
+            top: -15px;
+            left: -15px;
+        }
+    }
+
+    &--right {
+        &::after {
+            top: -15px;
+            right: -15px;
+        }
+    }
+
+    .item__hover-container {
+        overflow: hidden;
+    }
+
+    a {
+        &:hover {
+            & > img {
+                transform: scale(1.2);
+            }
+        }
+    }
+}

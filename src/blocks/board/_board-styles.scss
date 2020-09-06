@@ -1,0 +1,116 @@
+.block-board {
+    background-color: $gray-light-3;
+
+    @include fluid(padding-top, 50px, 100px);
+    @include fluid(padding-bottom, 20px, 40px);
+
+    .l-cols {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 0 -15px;
+        padding: 0 15px;
+
+        @include bp(md) {
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 0;
+        }
+
+        &__col {
+            margin: 0 15px;
+            width: 100%;
+            max-width: 500px;
+            @include fluid(margin-bottom, 40px, 70px);
+
+            @include bp(md) {
+                width: calc(100% / 3 - 30px);
+            }
+        }
+    }
+
+    .item {
+        &__image-wrapper {
+            padding: 0 15px 0 0;
+            @include fluid(margin-bottom, 15px, 20px);
+        }
+    }
+
+    &__item {
+        .header-block {
+            &__header {
+                @include fluid(margin-bottom, 10px, 15px);
+                @include fluid(padding-bottom, 10px, 15px);
+                @include fluid(font-size, 22px, 28px);
+            }
+
+            &__position {
+                display: block;
+                color: $gray;
+                text-align: center;
+                @include fluid(font-size, 14px, 15px);
+            }
+        }
+    }
+
+    &__description {
+        text-align: center;
+
+        @include fluid(margin-top, 10px, 20px);
+    }
+
+    &__contact {
+        @include fluid(margin-top, 15px, 30px);
+
+        .item-contact {
+            display: flex;
+            justify-content: center;
+            padding: 0;
+            margin: 0 0 5px 0;
+            font-family: $open-sans;
+            font-size: 14px;
+            font-weight: $font-weight-bold;
+            font-style: normal;
+            font-stretch: normal;
+            letter-spacing: normal;
+            color: $gray;
+
+            span.item-contact-icon {
+                display: block;
+                width: 20px;
+                height: 20px;
+                margin: 0 5px 0 0;
+            }
+
+            &.item-contact-mail {
+                span.item-contact-icon {
+                    background: url(../images/ico-mail.png) 0 7px no-repeat;
+                }
+            }
+
+            &.item-contact-phone {
+                span.item-contact-icon {
+                    background: url(../images/ico-phone.png) 0 5px no-repeat;
+                }
+
+                .item-phone-number {
+                    &:hover {
+                        cursor: pointer;
+                    }
+                }
+            }
+
+            a {
+                color: $gray;
+                @include transition;
+
+                &:hover {
+                    color: $yellow;
+                }
+            }
+        }
+    }
+
+}

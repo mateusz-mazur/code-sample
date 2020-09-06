@@ -1,0 +1,101 @@
+.block-benefits {
+    $n: &;
+
+    background: url(../images/block-benefits__bg.jpg) center center no-repeat;
+    background-size: cover;
+
+    @include fluid(padding-top, 50px, 80px);
+    @include fluid(padding-bottom, 30px, 100px);
+
+    .l-cols {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+
+        &__col {
+            width: 100%;
+            margin: 0 0 30px;
+
+            @include bp(lg) {
+                width: calc((100% / 3) - 30px);
+                margin: 0 15px;
+            }
+        }
+    }
+
+    &__items-wrapper {
+        @include fluid(margin-top, 50px, 80px);
+    }
+
+    &__item-wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        height: 100%;
+        background-color: $white;
+        border-bottom: solid 4px $yellow;
+
+        @include fluid(padding-top, 20px, 40px);
+        @include fluid(padding-left, 20px, 40px);
+        @include fluid(padding-right, 20px, 40px);
+        @include fluid(padding-bottom, 30px, 55px);
+
+
+        .item {
+            &__description {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                flex-grow: 1;
+            }
+
+            &__description-header {
+                margin: 0;
+                font-family: $titillium;
+                font-weight: 600;
+
+                @include fluid(font-size, 20px, 24px);
+                @include fluid(margin-top, 15px, 24px);
+            }
+
+            &__description-text {
+                font-size: 15px;
+
+                @include fluid(margin-top, 10px, 24px);
+            }
+        }
+    }
+
+    &__item {
+        &--circle {
+            #{$n}__item-wrapper {
+                align-items: center;
+                background-color: transparent;
+                border-bottom: none;
+                text-align: center;
+                padding-top: 0;
+                padding-bottom: 0;
+
+                .item {
+                    &__icon {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        background-color: $white;
+                        border-radius: 50%;
+                        border: solid 2px #e9e9e9;
+
+                        @include fluid(width, 80px, 130px);
+                        @include fluid(height, 80px, 130px);
+                        @include fluid(padding, 20px, 30px);
+                    }
+
+                    &__description-text {
+                        align-self: center;
+                        text-align: center;
+                    }
+                }
+            }
+        }
+    }
+}

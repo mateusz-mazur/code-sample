@@ -1,0 +1,90 @@
+// RWD Breakpoints.
+@mixin bp($point) {
+  @if $point == xs {
+    @media (min-width: $xs) {
+      @content;
+    }
+  }
+  @if $point == xsm {
+    @media (min-width: $xsm) {
+      @content;
+    }
+  }
+  @if $point == sm {
+    @media (min-width: $sm) {
+      @content;
+    }
+  }
+  @if $point == md {
+    @media (min-width: $md) {
+      @content;
+    }
+  }
+  @if $point == lg {
+    @media (min-width: $lg) {
+      @content;
+    }
+  }
+  @if $point == xl {
+    @media (min-width: $xl) {
+      @content;
+    }
+  }
+  @else if $point == xxl {
+    @media (min-width: $xxl) {
+      @content;
+    }
+  }
+}
+
+/*
+* Fluid Typography.
+*/
+/// $min - Minimum font size (px, rem)
+/// $max - Maximum font size (px, rem)
+/// $min-vw - Minimum viewport value lock range (px) --(optional)
+/// $max-vw - Maximum viewport value lock range (px) --(optional)
+/// $fallback - fallback font size (px, rem) --(optional)
+
+@mixin fluid($property, $min, $max, $min-vw: $xsm, $max-vw: $xl, $fallback: false) {
+  $min-no-unit : strip-units($min);
+  $max-no-unit : strip-units($max);
+
+  $min-vw-no-unit : strip-units($min-vw);
+  $max-vw-no-unit : strip-units($max-vw);
+
+  @if getUnit($min) == "rem" or getUnit($min) == "em" {
+    $min-no-unit : strip-units($min) * 16;
+    $max-no-unit : strip-units($max) * 16;
+  }
+
+  $responsive : calc(#{$min-no-unit}px + (#{$max-no-unit} - #{$min-no-unit}) * ((100vw - #{$min-vw}) / (#{$max-vw-no-unit} - #{$min-vw-no-unit})));
+
+  @if $fallback { #{$property}: $fallback; }
+  @else { #{$property}: $max; }
+  #{$property}:  $responsive;
+  @media screen and (max-width: #{$min-vw}) { #{$property}: $min; }
+  @media screen and (min-width: #{$max-vw}) { #{$property}: $max; }
+}
+@function strip-units($number) {
+  @return $number / ($number * 0 + 1);
+}
+@function getUnit($value) {
+  @return str-slice($value * 0 + "", 2, -1);
+}
+
+/*
+* Transitions.
+*/
+@mixin transition($properties: all, $duration: 0.2s, $timing-function: ease-in-out) {
+  $value: ();
+  @each $property in $properties {
+    @if length($value) > 0 {
+      $value: append($value, unquote(",") #{$property} $duration $timing-function);
+    }
+    @else {
+      $value: append($value, #{$property} $duration $timing-function);
+    }
+  }
+  transition: $value;
+}

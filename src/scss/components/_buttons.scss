@@ -1,0 +1,258 @@
+/*
+* Buttons.
+*/
+
+$button-colors: (
+    "primary": $yellow,
+    "secondary": $gray,
+    "black": $black,
+);
+$primary: $yellow;
+$secondary: $gray;
+$black: $black;
+$button-color: $gray;
+$button-color-hover: $yellow;
+
+
+.c-button {
+    font-weight: $font-weight-bold;
+    font-family: $titillium;
+    text-transform: uppercase;
+    color: $gray;
+    border: 0;
+    cursor: pointer;
+
+    /*
+    * Full Background.
+    */
+    &__full,
+    &__outline {
+        position: relative;
+        z-index: 1;
+        display: inline-flex;
+        justify-self: center;
+        align-items: center;
+        text-align: center;
+        background-color: transparent;
+        overflow: hidden;
+        transition: color .3s ease-in-out;
+        border-radius: 2px;
+
+        @include fluid(padding-top, 10px, 14px);
+        @include fluid(padding-left, 20px, 30px);
+        @include fluid(padding-right, 20px, 30px);
+        @include fluid(padding-bottom, 12px, 17px);
+
+        &::before,
+        &::after {
+            position: absolute;
+            top: 0;
+            right: 0;
+            content: '';
+        }
+
+        &::after {
+            left: 0;
+            bottom: 0;
+            width: calc(100% - 0rem);
+            border: 1px solid transparent;
+            border-radius: 2px;
+        }
+
+        &::before {
+            display: block;
+            z-index: -1;
+            height: 100%;
+            transition: all 0.4s cubic-bezier(0.42, 0, 0.58, 1);
+        }
+
+        &:hover,
+        &:focus {
+            &::before {
+                left: 0%;
+                right: auto;
+            }
+        }
+
+        &--small {
+            font-size: 12px;
+        }
+
+        &--medium {
+            font-size: 14px;
+        }
+
+        &--large {
+            font-size: 16px;
+        }
+
+        &--wide {
+            @include fluid(padding-left, 30px, 64px);
+            @include fluid(padding-right, 30px, 64px);
+        }
+
+        &--cookies-info {
+            font-size: .75rem;
+
+            @include fluid(padding-top, .25rem, .5rem);
+            @include fluid(padding-left, 1rem, 2rem);
+            @include fluid(padding-right, 1rem, 2rem);
+            @include fluid(padding-bottom, .25rem, .5rem);
+        }
+    }
+
+    &__full {
+        &:hover,
+        &:focus {
+            &::before {
+                width: 0;
+                right: 0;
+                left: auto;
+            }
+
+            .c-button__arrow {
+                transform: translateX(5px);
+            }
+
+            &.js-button-scroll-to-content {
+                .c-button__arrow {
+                    transform: translateY(3px);
+                }
+            }
+        }
+
+        &::before {
+            width: 100%;
+            left: 0;
+            right: auto;
+        }
+
+        &--white-color {
+            color: $primary;
+
+            &::after {
+                border-color: $white;
+            }
+
+            &::before {
+                background-color: $white;
+            }
+
+            &:hover,
+            &:focus {
+                background-color: $primary;
+                color: $white;
+            }
+        }
+    }
+
+    &__outline {
+        &::before {
+            width: 0;
+        }
+
+        &:hover,
+        &:focus {
+            &::before {
+                width: 100%;
+            }
+        }
+
+        &--white-color {
+            color: $white;
+
+            &::after {
+                border-color: $white;
+            }
+
+            &::before {
+                background-color: $white;
+            }
+
+            &:hover,
+            &:focus {
+                color: $primary;
+            }
+        }
+    }
+
+    &__arrow {
+        position: relative;
+        display: flex;
+        margin: -2px 0 0 7px;
+        height: 100%;
+        line-height: 1;
+        font-weight: $font-weight-semi-bold;
+
+        &::before {
+            position: relative;
+            top: 0;
+            left: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            content: '\2192';
+            font-family: $titillium;
+        }
+
+        @include transition(transform);
+    }
+
+    &.js-button-scroll-to-content {
+        .c-button__arrow {
+            &::before {
+                left: auto;
+                right: -5px;
+                content: '\2193';
+            }
+        }
+    }
+}
+
+@each $name, $color in $button-colors {
+    .c-button__text-only--#{$name}-color,
+    .c-button__text-only-with-border-bottom--#{$name}-color {
+        color: $color;
+        background-image: linear-gradient( to top, $color 1px, transparent 1px);
+
+        &:hover,
+        &:focus {
+            color: $color;
+        }
+    }
+
+    .c-button__full--#{$name}-color {
+        color: $button-color;
+
+        &::after {
+            border-color: $color;
+        }
+
+        &::before {
+            background-color: $color;
+        }
+
+        &:hover,
+        &:focus {
+            background-color: transparent;
+            color: $button-color-hover;
+        }
+    }
+
+    .c-button__outline--#{$name}-color {
+        color: $color;
+
+        &::after {
+            border-color: $color;
+        }
+
+        &::before {
+            background-color: $color;
+        }
+
+        &:hover,
+        &:focus {
+            color: $white;
+        }
+    }
+}

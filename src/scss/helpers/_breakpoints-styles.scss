@@ -1,0 +1,65 @@
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* ~~~~~~~~~~~~ Bootstrap Breakpoints Template Part Styles ~~~~~~~~~~~ */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+    body {
+        &::before {
+            content: "XS (<480px)";
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            padding: .5rem;
+            font-size: .75rem;
+            line-height: 1;
+            background: #841eac;
+            color: $white;
+            border-top-left-radius: 5px;
+            font-weight: $font-weight-medium;
+            z-index: 9999;
+
+            @include bp(xsm) {
+                content: "XSM (480px - 575px)";
+                background: #e907f8;
+            }
+
+            @include bp(sm) {
+                content: "SM (576px - 767px)";
+                background: #3f88d2;
+            }
+
+            @include bp(md) {
+                content: "MD (768px - 991px)";
+                background: #489f3e;
+            }
+
+            @include bp(lg) {
+                content: "LG (992px - 1139px)";
+                background: #f1aa3c;
+                color: $black;
+            }
+
+            @include bp(xl) {
+                content: "XL (1140px - 1680px)";
+                background: #db3141;
+                color: $white;
+            }
+
+            @include bp('xxl') {
+                content: "XXL (>1680px)";
+                background: #41f4bb;
+                color: $white;
+            }
+        }
+    }
+
+    .admin-bar {
+        .main-content {
+            &::before {
+                bottom: 2.9rem;
+
+                /*@include media-breakpoint-up(md) {
+                    bottom: 2rem;
+                }*/
+            }
+        }
+    }

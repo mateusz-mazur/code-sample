@@ -1,0 +1,7 @@
+.idea/*
+.vscode/
+node_modules
+.sass-cache/*
+*.bak
+*.swp
+Thumbs.db

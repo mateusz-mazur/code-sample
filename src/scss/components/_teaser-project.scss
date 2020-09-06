@@ -1,0 +1,39 @@
+.teaser-project {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    &__description {
+        flex-grow: 2;
+
+        .description-row {
+            display: flex;
+            @include fluid(margin-top, 10px, 15px);
+
+            &__label {
+                flex: 1;
+                font-size: 13px;
+                font-weight: $font-weight-bold;
+
+                @include fluid(padding-right, 10px, 15px);
+
+                @include bp(lg) {
+                    max-width: 40%;
+                }
+            }
+
+            &__value {
+                flex: 1;
+                font-size: 13px;
+            }
+        }
+    }
+
+    &__more {
+        @include fluid(margin-top, 10px, 20px);
+    }
+
+    .c-button {
+        @include fluid(margin-top, 15px, 20px);
+    }
+}

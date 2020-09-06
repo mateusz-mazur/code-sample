@@ -1,0 +1,62 @@
+.block-page-submenu {
+    background-color: $gray-light-4;
+
+    .menu {
+        display: flex;
+
+        .menu-item {
+            position: relative;
+            font-family: $titillium;
+            font-size: 14px;
+            font-weight: $font-weight-semi-bold;
+            color: $gray;
+            line-height: 1.4;
+
+            a {
+                display: flex;
+                flex-direction: row-reverse;
+                align-items: center;
+                justify-content: center;
+                color: $gray;
+
+                @include fluid(padding-top, 20px, 30px);
+                @include fluid(padding-bottom, 20px, 30px);
+                @include fluid(padding-left, 10px, 10px);
+                @include fluid(padding-right, 10px, 10px);
+
+                &:hover {
+                    color: $yellow;
+                }
+            }
+
+            &::after {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                content: '';
+                display: block;
+                width: 100%;
+                height: 4px;
+                background-color: $yellow;
+                opacity: 0;
+
+                @include transition(opacity);
+            }
+
+            &__icon {
+                margin-right: 10px;
+            }
+
+            &:hover,
+            &.current-menu-item {
+                a {
+                    color: $yellow;
+                }
+
+                &::after {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}

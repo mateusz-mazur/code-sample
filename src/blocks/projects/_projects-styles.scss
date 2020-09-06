@@ -1,0 +1,16 @@
+.block-projects {
+
+    @include fluid(padding-top, 50px, 80px);
+
+    .header-block__header {
+        @include fluid(margin-bottom, 30px, 50px);
+    }
+
+    &__more {
+        display: flex;
+        justify-content: center;
+
+        @include fluid(margin-top, 40px, 80px);
+    }
+
+}

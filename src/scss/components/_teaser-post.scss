@@ -1,0 +1,98 @@
+/*
+* Post Teaser.
+*/
+.post-teaser {
+    @include fluid(margin-top, 50px, 100px);
+
+    &:last-child {
+        @include fluid(margin-bottom, 50px, 100px);
+    }
+
+    .l-cols {
+        display: flex;
+        flex-direction: column-reverse;
+
+        @include bp(md) {
+            flex-direction: row;
+
+        }
+
+        &__col {
+            width: 100%;
+
+            @include bp(md) {
+                width: 50%;
+            }
+
+            &--description {
+                margin-right: 0;
+
+                @include bp(md) {
+                    @include fluid(padding-right, 30px, 130px, $md, $xl);
+                }
+            }
+
+            &--image {
+                //width: 100%;
+                //
+                //@include bp(md) {
+                //    flex-grow: 1;
+                //    @include fluid(width, 300px, 550px);
+                //}
+            }
+        }
+    }
+
+    &:nth-child(even) {
+        .l-cols {
+            @include bp(md) {
+                flex-direction: row-reverse;
+            }
+
+            &__col {
+                &--description {
+                    padding-right: 0;
+                    padding-left: 0;
+
+                    @include bp(md) {
+                        @include fluid(padding-left, 30px, 130px, $md, $xl);
+                    }
+                }
+            }
+        }
+
+        .item__image-wrapper {
+            padding: 15px 0 0 15px;
+
+            .image-with-decor {
+                &::after {
+                    top: -15px;
+                    left: -15px;
+                }
+            }
+        }
+    }
+
+    .header-block__header {
+        @include fluid(margin-top, 20px, 30px);
+        @include fluid(margin-bottom, 15px, 30px);
+
+        @include bp(md) {
+            margin-top: 0;
+        }
+    }
+
+    &__meta {
+        color: #dcdcdc;
+
+        @include fluid(font-size, 14px, 15px);
+    }
+
+    &__excerpt {
+        @include fluid(margin-top, 15px, 30px);
+    }
+
+    .item__image-wrapper {
+        padding: 15px 15px 0 0;
+    }
+}

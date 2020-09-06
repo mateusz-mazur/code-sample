@@ -1,0 +1,132 @@
+/* Typographical Elements
+--------------------------------------------- */
+
+body {
+    background-color: $white;
+    color: $gray;
+    font-family: $open-sans;
+    font-size: 15px;
+    font-weight: $font-weight-regular;
+    line-height: 1.625;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+button,
+input:focus,
+input[type="button"],
+input[type="reset"],
+input[type="submit"],
+textarea:focus,
+.button,
+.gallery img {
+    transition: all 0.2s ease-in-out;
+}
+
+a {
+    color: $yellow;
+    text-decoration: none;
+    transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+}
+
+a:focus,
+a:hover {
+    text-decoration: none;
+}
+
+p {
+    margin: 0 0 30px;
+    padding: 0;
+}
+
+ol,
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style-type: none;
+}
+
+hr {
+    border: 0;
+    border-collapse: collapse;
+    border-bottom: 1px solid currentColor;
+    clear: both;
+    color: $gray;
+    margin: 1.65em auto;
+}
+
+b,
+strong {
+    font-weight: 700;
+}
+
+blockquote,
+cite,
+em,
+i {
+    font-style: italic;
+}
+
+mark {
+    background: #ddd;
+    color: #333;
+}
+
+blockquote {
+    margin: 30px;
+}
+
+/* Headings
+--------------------------------------------- */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: $titillium;
+    font-weight: $font-weight-semi-bold;
+    line-height: 1.2;
+    margin: 0 0 1.5rem;
+}
+
+h1 {
+    //@include fluid-font(1.625rem, 2.1875rem); // 26px 35px
+    //@include fluid-type(font-size, 320px, 1140px, 24px, 48px);
+    //@include fluid-type(margin-bottom, 320px, 1140px, 10px, 40px);
+
+    @include fluid(font-size, 1.625rem, 2.1875rem); // 26px 35px
+}
+
+h2 {
+    //@include fluid-font(1.625rem, 2.1875rem); // 26px 35px
+}
+
+h3 {
+    font-size: 24px;
+}
+
+h4 {
+    font-size: 20px;
+}
+
+.entry-content h3,
+.entry-content h4 {
+    font-weight: 600;
+}
+
+.entry-content h4 {
+    margin-top: 40px;
+}
+
+h5 {
+    font-size: 18px;
+}
+
+h6 {
+    font-size: 16px;
+}

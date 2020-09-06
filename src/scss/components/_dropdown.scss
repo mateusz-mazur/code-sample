@@ -1,0 +1,110 @@
+.dropdown {
+    display: block;
+    width: 100%;
+
+    @include bp(lg) {
+        display: none;
+    }
+
+    .hide {
+        max-height: 0 !important;
+    }
+
+    .title {
+        position: relative;
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: flex-end;
+        width: 100%;
+        font-family: $titillium;
+        font-size: 14px;
+        font-weight: $font-weight-semi-bold;
+        color: $yellow;
+        line-height: 1.4;
+        cursor: pointer;
+
+        &::before {
+            position: absolute;
+            top: 0;
+            right: 20px;
+            content: '\2193';
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 60px;
+            height: 100%;
+            color: $gray;
+
+            @include fluid(font-size, 15px, 25px);
+
+        }
+
+        &:hover {
+            .title::before {
+                color: $yellow;
+            }
+        }
+
+        &--active {
+            &.title {
+                &::before {
+                    content: '\2191';
+                    color: $yellow;
+                }
+            }
+        }
+
+        @include fluid(padding, 15px, 20px);
+
+        .menu-item__icon {
+            @include fluid(width, 20px, 25px);
+            @include fluid(margin-right, 15px, 20px);
+
+            & > img {
+                min-width: 20px;
+
+                @include fluid(width, 20px, 25px);
+            }
+        }
+    }
+
+    .menu {
+        transition: max-height .5s ease-out;
+        max-height: 20em;
+        overflow: hidden;
+
+        .option {
+            @include fluid(padding, 15px, 20px);
+            @include transition(background);
+
+            a {
+                display: flex;
+                flex-direction: row-reverse;
+                justify-content: flex-end;
+                align-items: center;
+                font-family: $titillium;
+                font-size: 14px;
+                font-weight: $font-weight-semi-bold;
+                color: $gray;
+                line-height: 1.4;
+
+                .menu-item__icon {
+                    @include fluid(width, 20px, 25px);
+                    @include fluid(margin-right, 15px, 20px);
+
+                    & > img {
+                        width: 25px;
+                        max-width: 20px;
+                    }
+                }
+            }
+
+            &:hover {
+                a {
+                    color: $yellow;
+                }
+            }
+        }
+
+    }
+}

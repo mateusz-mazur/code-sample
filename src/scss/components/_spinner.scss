@@ -1,0 +1,14 @@
+/*
+* Spinner.
+*/
+
+.c-spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background: url(../images/spinner--rolling--yellow.svg) center center no-repeat;
+
+    @include fluid(padding, 40px, 100px);
+
+}

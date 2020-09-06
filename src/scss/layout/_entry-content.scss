@@ -1,0 +1,113 @@
+/* Entry Content
+--------------------------------------------- */
+
+.entry {
+    &--with-bottom-margin {
+        margin-bottom: 40px;
+    }
+}
+
+article {
+    .entry-content ol,
+    .entry-content ul {
+        margin-bottom: 30px;
+        padding-left: 15px;
+    }
+}
+
+.entry-content {
+    a:not([class*='button']):not([class*='block-projects-categories__tab-inner']):not([class*='no-link-decor']) {
+        text-decoration: none;
+        background-image: linear-gradient( to top, currentColor 1px, transparent 1px);
+        background-size: 0% 100%;
+        background-repeat: no-repeat;
+        transition: all ease-in-out .4s;
+        padding-bottom: .125rem;
+
+        &:hover,
+        &:focus {
+            color: $yellow;
+            background-size: 100% 100%;
+        }
+    }
+}
+
+.entry-content ol > li {
+    list-style-type: decimal;
+
+    @include fluid(margin-bottom, 3px, 5px);
+}
+
+.entry-content ul:not([class='slick-dots']):not([class='box-testimonials-logos']):not([class='c-tabs']):not([class='p-contact__sm']):not([class='gform_fields']) {
+    & > li {
+        list-style: none;
+
+        @include fluid(margin-bottom, 3px, 5px);
+
+        &::before {
+            display: inline-block;
+            content: '\2022';
+            width: 15px;
+            margin-left: -15px;
+            color: $yellow;
+            font-weight: $font-weight-bold;
+        }
+    }
+}
+
+.entry-content ol ul > li,
+.entry-content ul ul > li {
+    list-style: none;
+
+    @include fluid(margin-bottom, 3px, 5px);
+
+    &::before {
+        display: inline-block;
+        content: '\2022';
+        width: 15px;
+        margin-left: -15px;
+        color: $yellow;
+        font-weight: $font-weight-bold;
+    }
+}
+
+.entry-content ol ol,
+.entry-content ul ul {
+    margin-bottom: 0;
+}
+
+.entry-content code {
+    background-color: #f5f5f5;
+}
+
+.content .sticky {
+    background-color: #f5f5f5;
+    padding: 30px;
+}
+
+/* Entry Meta
+--------------------------------------------- */
+
+p.entry-meta {
+    font-size: 16px;
+    margin-bottom: 0;
+}
+
+.entry-header .entry-meta {
+    margin-bottom: 20px;
+}
+
+.entry-footer .entry-meta {
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+}
+
+.entry-categories,
+.entry-tags {
+    display: block;
+}
+
+.entry-comments-link::before {
+    content: "\2014";
+    margin: 0 6px 0 2px;
+}

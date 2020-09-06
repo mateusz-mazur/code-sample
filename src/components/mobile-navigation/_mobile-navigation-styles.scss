@@ -1,0 +1,174 @@
+.mobile-navigation {
+
+    &__logo-wrapper {
+        display: flex;
+        justify-content: center;
+
+        @include fluid(padding-top, 20px, 30px);
+        @include fluid(padding-bottom, 20px, 30px);
+        @include fluid(padding-left, 20px, 30px);
+        @include fluid(padding-right, 20px, 30px);
+
+        .custom-logo {
+            display: block;
+            max-width: 150px;
+            width: 100%;
+            margin: auto;
+        }
+    }
+
+    /*
+    * App Login Button.
+    */
+    &__app-button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        @include fluid(margin-top, 20px, 30px);
+
+        a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 12px 24px;
+            font-family: $titillium;
+            font-size: 14px;
+            font-weight: $font-weight-bold;
+            font-style: normal;
+            font-stretch: normal;
+            letter-spacing: 0.7px;
+            text-align: center;
+            color: $gray;
+            background: $yellow;
+            border: none;
+            text-transform: uppercase;
+
+            @include transition(background-color);
+
+            &:hover {
+                background: lighten($yellow, 15%);
+            }
+        }
+    }
+
+    /*
+    * Social Media.
+    */
+    &__social-media {
+        display: flex;
+        justify-content: center;
+
+        @include fluid(margin-top, 20px, 30px);
+
+        .social-media-icons {
+            display: flex;
+            margin: 0;
+            padding: 0;
+
+            &__icon {
+                list-style: none;
+                margin: 0 15px;
+
+                a {
+                    display: flex;
+                    justify-content: center;
+                    align-items: flex-end;
+                    height: 18px;
+                    width: 18px;
+                }
+
+                &:hover {
+                    .social-media-icons__icon-image {
+                        transform: translateY(-2px);
+                    }
+                }
+            }
+
+            &__icon-image {
+                object-fit: contain;
+
+                @include transition(transform, .3s);
+            }
+        }
+    }
+
+    &__languages-switcher {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        @include fluid(padding, 20px, 30px);
+        padding-bottom: 0;
+
+        .wpml-ls-flag {
+            width: 14px;
+            height: 14px;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .wpml-ls-native {
+            font-family: $titillium;
+            font-size: 14px;
+            font-weight: $font-weight-semi-bold;
+        }
+    }
+
+    /*
+    * Menu.
+    */
+    .menu-item {
+        a {
+            font-family: $titillium;
+            font-size: 14px;
+            font-weight: $font-weight-semi-bold;
+            font-style: normal;
+            font-stretch: normal;
+            letter-spacing: 0.35px;
+            text-transform: uppercase;
+            color: $gray;
+
+            &:hover {
+                $color: $yellow;
+            }
+        }
+
+
+    }
+
+    .mm-listitem {
+        &::after {
+            left: 20px;
+            right: 20px;
+            border-color: $gray-light-2;
+            @include transition(border);
+        }
+
+        &.menu-item:hover,
+        &.current-menu-item {
+            color: $yellow;
+
+            a {
+                color: $yellow;
+            }
+
+            &::after {
+                border-color: $yellow;
+            }
+        }
+    }
+
+}
+
+.mburger {
+    display: block;
+    width: 80px;
+    height: 80px;
+    //--mb-button-size: 3rem;
+    --mb-bar-height: 3px;
+    --mb-bar-spacing: 5px;
+
+    @include bp(lg) {
+        display: none;
+    }
+}

@@ -1,0 +1,27 @@
+.block-contact-for-more {
+    background: url(../images/block-contact-for-more__bg.jpg) center center no-repeat;
+    background-size: cover;
+
+    @include fluid(padding-top, 50px, 100px);
+    @include fluid(padding-bottom, 50px, 120px);
+
+    &__content {
+        color: $white;
+        text-align: center;
+        max-width: 560px;
+        margin: auto;
+    }
+
+    &__cta {
+        color: $white;
+        text-align: center;
+        font-family: $titillium;
+
+        @include fluid(font-size, 17px, 20px);
+
+        a {
+            color: $yellow;
+            font-weight: $font-weight-bold;
+        }
+    }
+}
